@@ -1,8 +1,8 @@
 # Product Blueprint
 
-**Nombre del proyecto:** Escriban aquí el nombre
+**Nombre del proyecto:** Authory
 
-**Repositorio (enlace obligatorio):** [Nombre del repositorio](https://github.com/usuario/repositorio)
+**Repositorio (enlace obligatorio):** [Authory](https://github.com/nidaela/Authory)
 
 > Los campos marcados como *enlace obligatorio* deben ir como enlace en Markdown, con este formato: `[texto del enlace](https://...)`. Reemplacen el texto y la dirección de ejemplo.
 
@@ -43,28 +43,66 @@
 
 > Qué resultado obtiene el usuario y por qué elegiría esta solución. En qué se diferencia de cómo resuelve hoy. Conecta con el usuario del Problem Brief. Extensión: 150–300 palabras en total.
 
-**Usuario (del Problem Brief):** Escriban aquí su respuesta.
+**Usuario (del Problem Brief):** Creadores digitales —como diseñadores, ilustradores, músicos, programadores y otros productores de contenido digital— que necesitan demostrar de forma confiable la autoría y fecha de creación de sus obras. También compradores, clientes y terceros que necesitan verificar su origen y conocer quién tiene derecho a utilizarlas o transferirlas.
 
-**Resultado que obtiene:** Escriban aquí su respuesta.
+**Resultado que obtiene:** Authory permite registrar una obra digital con una evidencia verificable de quién la creó y cuándo, y conservar un historial de eventos posteriores relacionados con sus derechos. Esto permite distinguir al autor original de quienes posteriormente reciben, adquieren o utilizan determinados derechos sobre la obra.
 
-**Por qué elegiría esta solución:** Escriban aquí su respuesta.
+**Por qué elegiría esta solución:** Porque reúne en un mismo historial información que hoy puede estar distribuida entre archivos, correos, repositorios, publicaciones y documentos separados. Para el creador, facilita demostrar el origen de su obra; para compradores y terceros, permite verificar información relevante antes de utilizarla o adquirirla, reduciendo incertidumbre y el esfuerzo de reconstruir evidencias dispersas.
 
-**En qué se diferencia de cómo lo resuelve hoy:** Escriban aquí su respuesta.
+**En qué se diferencia de cómo lo resuelve hoy:** Actualmente la autoría y las transferencias de derechos suelen demostrarse recurriendo a diferentes fuentes que no necesariamente forman un historial continuo. Authory propone conectar el registro inicial de la obra con eventos posteriores en una secuencia verificable que distintos actores puedan consultar, sin depender exclusivamente de una única plataforma o intermediario para reconstruir qué ocurrió con la obra.
 
 ---
 
 ## 3. Flujo de usuario
 
 > Recorrido de la persona por la solución de principio a fin, roles y puntos de interacción. Diagrama o secuencia numerada. Extensión: 150–300 palabras.
+El recorrido principal comienza cuando un creador digital registra una obra en Authory. La plataforma recibe la información básica, genera una huella criptográfica y registra evidencia verificable asociada a la autoría y fecha mediante Stellar. Después, el creador puede consultar el registro generado y compartir su identificador.
+
+Un comprador o tercero puede verificar públicamente la obra mediante su ID o hash y consultar su autor original, fecha de registro y procedencia. Si posteriormente existe una cesión o licencia, el titular puede registrar ese cambio para mantener actualizado el historial de derechos. Las colaboraciones y versiones se consideran extensiones posteriores del flujo principal. Finalmente, los actores pueden consultar el historial de eventos verificables relacionados con la obra.
+
+Este recorrido permite separar las acciones del creador, las consultas de terceros y los procesos internos de Authory. El registro inicial y la verificación forman el núcleo del MVP, mientras que la gestión de derechos amplía su valor al conservar eventos posteriores asociados a la obra. La colaboración y el versionado quedan planteados como extensiones posteriores para evitar aumentar innecesariamente el alcance inicial del producto.
 
 | Paso | Rol | Qué hace | Punto de interacción |
 | :---: | :---: | --- | --- |
-| 1 | Rol | Escriban aquí su respuesta. | Pantalla, billetera, red, etc. |
-| 2 | Rol | Escriban aquí su respuesta. | Pantalla, billetera, red, etc. |
-| 3 | Rol | Escriban aquí su respuesta. | Pantalla, billetera, red, etc. |
-| 4 | Rol | Escriban aquí su respuesta. | Pantalla, billetera, red, etc. |
+| 1 | Creador digital | Ingresa a Authory y selecciona Registrar obra. | Página principal |
+| 2 | Creador digital | Ingresa título, tipo, descripción, archivo o enlace y datos de autoría. | Pantalla Registrar obra |
+| 3 | Sistema (Authory) | Genera el hash y registra evidencia verificable de autoría y fecha. | Backend + Stellar |
+| 4 | Creador digital | Consulta el registro generado, su ID, hash, fecha, autoría y estado. | Pantalla Detalle de obra |
+| 5 | Comprador / tercero | Busca la obra mediante ID o hash y comprueba autor, fecha y procedencia. | Pantalla pública Verificar obra |
+| 6 | Creador / titular | Registra una cesión o licencia cuando cambian los derechos de uso.| Pantalla Derechos / Licencia |
+| 7 | Colaborador | Registra su participación en una obra cuando corresponde. Esta función puede incorporarse después del MVP. | Pantalla Colaboración |
+| 8 | Creador / tercero verificador | Consulta el registro inicial y los eventos posteriores relacionados con la obra. | Pantalla Historial |
 
-*(Agreguen los pasos que hagan falta. Si prefieren, inserten aquí un diagrama.)*
+```mermaid
+flowchart LR
+
+    A["1. HOME<br/>Creador digital<br/><br/>Selecciona Registrar obra"]
+    B["2. REGISTRAR OBRA<br/>Creador digital<br/><br/>Título · tipo · descripción<br/>archivo/enlace · autoría"]
+    C["3. GENERAR EVIDENCIA<br/>Authory<br/><br/>Genera hash<br/>Registra fecha y evidencia en Stellar"]
+    D["4. DETALLE DE OBRA<br/>Creador digital<br/><br/>ID · hash · fecha<br/>autoría · estado"]
+    E["5. VERIFICAR OBRA<br/>Comprador / tercero<br/><br/>Busca por ID o hash<br/>Verifica autor y procedencia"]
+    F["6. DERECHOS / LICENCIA<br/>Creador / titular<br/><br/>Registra cesión o licencia"]
+    G["7. COLABORACIÓN<br/>Colaborador<br/><br/>Registra participación<br/>(posterior al MVP)"]
+    H["8. HISTORIAL<br/>Creador / tercero verificador<br/><br/>Consulta eventos verificables"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    D --> F
+    D -.-> G
+    E --> H
+    F --> H
+    G --> H
+
+    classDef main fill:#FFFCE8,stroke:#C81E4A,stroke-width:2px,color:#111827;
+    classDef stellar fill:#EEF6FF,stroke:#2563EB,stroke-width:2px,color:#111827;
+    classDef later fill:#F5F5F5,stroke:#64748B,stroke-width:2px,color:#475569;
+
+    class A,B,D,E,F,H main;
+    class C stellar;
+    class G later;
+```
 
 ---
 
