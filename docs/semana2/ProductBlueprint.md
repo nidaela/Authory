@@ -128,6 +128,9 @@ Funcionalidad central separada de la deseable que queda fuera. Justificación de
 
 **Imagen del Lean Canvas (obligatorio):** [Lean Canvas del proyecto](https://www.figma.com/board/U3hvVidAjdO0B3OLK0c0Op/Product-Blueprint?node-id=73-320&t=qzAVazNJbNio5VZa-4)
 
+**Lean Canvas:
+<img width="7930" height="3932" alt="Product Blueprint" src="https://github.com/user-attachments/assets/91021632-36d9-485f-98cb-2eca6897d658" />
+
 El lienzo debe cubrir: problema, segmento de usuarios, propuesta de valor única, solución, canales, métricas clave, ventaja diferencial y estructura de costos e ingresos.
 
 ---
