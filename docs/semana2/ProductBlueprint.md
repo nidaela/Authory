@@ -126,7 +126,7 @@ Funcionalidad central separada de la deseable que queda fuera. Justificación de
 
 > Lienzo de una página con el modelo del producto. Extensión: enlace (obligatorio).
 
-**Enlace al Lean Canvas (obligatorio):** [Lean Canvas del proyecto](https://escriban-aqui-el-enlace)
+**Imagen del Lean Canvas (obligatorio):** [Lean Canvas del proyecto](https://www.figma.com/board/U3hvVidAjdO0B3OLK0c0Op/Product-Blueprint?node-id=73-320&t=qzAVazNJbNio5VZa-4)
 
 El lienzo debe cubrir: problema, segmento de usuarios, propuesta de valor única, solución, canales, métricas clave, ventaja diferencial y estructura de costos e ingresos.
 
