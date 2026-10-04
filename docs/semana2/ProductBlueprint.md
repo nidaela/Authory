@@ -108,15 +108,17 @@ flowchart LR
 
 ## 4. Alcance del MVP
 
-> Funcionalidad central separada de la deseable que queda fuera. Justificación de por qué el recorte sigue entregando valor. Extensión: 150–300 palabras en total.
+Funcionalidad central separada de la deseable que queda fuera. Justificación de por qué el recorte sigue entregando valor. Extensión: 150–300 palabras en total.
 
 | Dentro del MVP (funcionalidad central) | Fuera del MVP (deseable, para después) |
-| --- | --- |
-| Escriban aquí su respuesta. | Escriban aquí su respuesta. |
-| Escriban aquí su respuesta. | Escriban aquí su respuesta. |
-| Escriban aquí su respuesta. | Escriban aquí su respuesta. |
+| :--- | :--- |
+| Registro de obras con generación de huella criptográfica (hash) y sellado de tiempo inmutable en Stellar. | Gestión de coautorías complejas con porcentajes de participación y validación multifirma entre colaboradores. |
+| Verificación pública por ID o archivo para comprobar autor original, fecha e integridad sin necesidad de cuenta. | Control de versiones ramificadas, derivados y actualizaciones de contenido de la obra. |
+| Historial básico de eventos para registrar y consultar transferencias de derechos o licencias de uso. | Sistema de notificaciones automáticas y alertas por correo ante cambios en los derechos. |
+| Generación de certificado descargable y enlace único verificable para compartir evidencias con terceros. | Pasarela de pagos integrada y marketplace para la comercialización directa de licencias. |
 
-**Por qué el recorte sigue entregando valor:** Escriban aquí su respuesta.
+**Por qué el recorte sigue entregando valor:** El recorte se enfoca en resolver la necesidad más crítica de los creadores: demostrar de forma irrefutable quién creó una obra y cuándo, protegiéndola contra el plagio sin comprometer su contenido privado. Al posponer módulos complejos como la validación multifirma en coautorías, el árbol de versiones y las pasarelas de pago, Authory reduce la fricción de adopción y concentra su esfuerzo en la robustez del registro en Stellar y en la verificación pública y abierta. Esto permite a diseñadores, músicos y desarrolladores contar con certeza técnica y un certificado utilizable de inmediato ante clientes y plataformas, mientras que los terceros adquieren una herramienta ágil para auditar la procedencia de una obra antes de utilizarla.
+
 
 ---
 
