@@ -146,15 +146,21 @@ El lienzo debe cubrir: problema, segmento de usuarios, propuesta de valor única
 
 > Cómo se conectan las partes (interfaz, lógica, Stellar) y en qué punto entra la red. Diagrama simple en imagen. Extensión: 150–300 palabras en total.
 
-**Diagrama (imagen o enlace):** Escriban aquí el enlace o inserten la imagen.
+**Diagrama (imagen):**
+
+![Arquitectura inicial de Authory con integración a Stellar](./arquitectura_inicial_con_red_stellar.png)
+
+Authory se plantea como una aplicación web modular. El usuario interactúa con una interfaz para registrar una obra, consultar su historial o registrar una transferencia de derechos. El backend concentra la autenticación, la gestión de obras y versiones, la generación de la huella criptográfica (hash) y la lógica de derechos. Los archivos originales permanecen en almacenamiento privado y los metadatos operativos se guardan en una base de datos tradicional.
 
 | Capa | Componente | Qué hace |
 | :---: | --- | --- |
-| Interfaz | Escriban aquí su respuesta. | Escriban aquí su respuesta. |
-| Lógica | Escriban aquí su respuesta. | Escriban aquí su respuesta. |
-| Stellar | Escriban aquí su respuesta. | Escriban aquí su respuesta. |
+| Interfaz | Aplicación web | Permite registrar obras, consultar registros, verificar información y solicitar transferencias de derechos. |
+| Lógica | Backend / API + base de datos + almacenamiento privado | Genera el hash, administra usuarios, obras, versiones y derechos; conserva el archivo original fuera de la blockchain. |
+| Stellar | Red Stellar + Soroban | Registra evidencia verificable de la huella de la obra y mantiene eventos asociados a transferencias de derechos. |
 
-**En qué punto entra la red:** Escriban aquí su respuesta.
+**En qué punto entra la red:** Stellar interviene después de que el backend genera el hash. Para un registro, el backend envía a Stellar la evidencia mínima necesaria y recibe el identificador de transacción, que se guarda como referencia. Para una transferencia, el backend invoca la lógica correspondiente en Soroban. Así, el flujo principal es: **archivo → backend → hash → Stellar → Transaction ID → base de datos**, mientras el archivo original permanece privado.
+
+Cuando un tercero verifica una obra, Authory contrasta su huella con la evidencia registrada en Stellar. De esta forma, la aplicación conserva los datos privados y Stellar funciona únicamente como capa externa de confianza y trazabilidad, evitando almacenar contenido pesado o sensible en blockchain.
 
 ---
 
@@ -162,9 +168,13 @@ El lienzo debe cubrir: problema, segmento de usuarios, propuesta de valor única
 
 > Qué componentes de Stellar usaría y por qué cada uno. Apoyado en el criterio de pertinencia del Problem Brief. Extensión: 150–300 palabras en total.
 
-**Criterio de pertinencia (del Problem Brief):** Escriban aquí el criterio en el que se apoyan.
+**Criterio de pertinencia (del Problem Brief):** La solución necesita conservar evidencia verificable e inalterable sobre el registro de una obra y mantener trazabilidad de eventos posteriores, como cesiones o transferencias de derechos, sin exponer el archivo original ni depender exclusivamente de una base de datos controlada por una sola parte.
 
 | Componente de Stellar | Para qué lo usamos | Por qué ese y no otra alternativa |
 | --- | --- | --- |
-| Escriban aquí su respuesta. | Escriban aquí su respuesta. | Escriban aquí su respuesta. |
-| Escriban aquí su respuesta. | Escriban aquí su respuesta. | Escriban aquí su respuesta. |
+| Stellar Ledger y transacciones | Registrar la huella de la obra y una referencia temporal verificable mediante la transacción y el ledger. | Una base de datos tradicional puede modificarse por su administrador; Stellar aporta un registro distribuido y verificable por terceros. |
+| Cuentas y firmas criptográficas | Autorizar operaciones y asociarlas con la cuenta que realiza el registro o transferencia. | Permiten demostrar criptográficamente que una operación fue autorizada por quien controla la clave correspondiente. |
+| Soroban Smart Contracts | Implementar reglas para registrar cesiones o transferencias y conservar un historial verificable de esos eventos. | Permite ejecutar lógica programable sobre Stellar sin depender únicamente de lógica privada en el backend. |
+| Stellar RPC / API | Conectar el backend con la red, enviar operaciones y consultar transacciones, ledgers y estados. | Proporciona el mecanismo estándar de integración entre Authory y Stellar para registrar y verificar evidencias. |
+
+Stellar se usa únicamente donde aporta confianza y trazabilidad. **Los archivos originales y los datos sensibles permanecen fuera de la cadena**; la blockchain conserva evidencia criptográfica y referencias verificables. Así, su uso responde directamente al problema y no se incorpora como almacenamiento ni como elemento decorativo.
