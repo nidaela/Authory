@@ -25,17 +25,16 @@
 
 > Historias elegidas entre las que propuso el equipo y criterio con que se priorizaron. Son las que pasan al backlog. Extensión: breve.
 
-**Criterio de priorización:** Escriban aquí el criterio (por ejemplo, imprescindible / debería / podría / queda fuera).
+**Criterio de priorización:** El equipo reunió las historias individuales y las priorizó con tres criterios combinados: (1) ¿sin esto el MVP resuelve el problema?, (2) ¿ataca una fricción central del Problem Brief?, y (3) ¿sirve a los usuarios primarios (creador y comprador)? Con base en ellos se aplicó la matriz de cuatro niveles de la Sesión 3: Imprescindible para lo que no puede faltar sin romper el MVP, Debería para lo que amplía valor pero no bloquea, Podría para lo deseable si sobra tiempo, y Queda afuera para lo que no ataca el problema central. Las historias priorizadas pasan al backlog en el tablero Kanban de GitHub Projects con sus criterios de aceptación por tarjeta.
 
 | Prioridad | Historia | Propuesta por | Por qué entra al backlog |
 | :---: | --- | :---: | --- |
-| 1 | Como [rol] quiero [acción] para [beneficio]. | Nombre | Escriban aquí su respuesta. |
-| 2 | Como [rol] quiero [acción] para [beneficio]. | Nombre | Escriban aquí su respuesta. |
-| 3 | Como [rol] quiero [acción] para [beneficio]. | Nombre | Escriban aquí su respuesta. |
-| 4 | Como [rol] quiero [acción] para [beneficio]. | Nombre | Escriban aquí su respuesta. |
-| 5 | Como [rol] quiero [acción] para [beneficio]. | Nombre | Escriban aquí su respuesta. |
-
-*(Agreguen o borren filas según las historias que pasen al backlog.)*
+| 1 | Como creador digital, quiero registrar mi obra con una fecha y una marca única al momento de crearla, para tener una prueba confiable de cuándo y quién la hizo. | Rodrigo Ramirez | Imprescindible: Es el acto fundacional. Sin este primer registro no hay nada que versionar, transferir ni verificar. Es la base sobre la que se sostiene todo lo demás. |
+| 2 | Como comprador, quiero verificar quién es el autor de una obra y cuándo la registró, sin tener que crear una cuenta, para confirmar su origen antes de comprarla o usarla. | Rodrigo Ramirez | Imprescindible: Es la otra mitad del MVP. Un registro que nadie puede verificar no resuelve el problema. Ataca la fricción de verificación manual y sin intermediarios. |
+| 3 | Como creador digital, quiero dejar constancia cuando cedo o licencio los derechos de mi obra a otra persona, para que quede claro quién puede usarla después de mí. | Rodrigo Ramirez | Imprescindible: Ataca la tercera fricción central del Problem Brief: la separación entre autor original y titular actual. Sin esta historia, el producto solo prueba autoría, no titularidad. |
+| 4 | Como notario o auditor digital, quiero verificar la integridad y la fecha de un registro, para certificar legalmente la existencia y no alteración de una obra sin necesidad de almacenar el archivo original en nuestros servidores. | Selene Escalona | Debería: Aporta valor legal y refuerza el criterio de histórico inalterable. El MVP funciona sin notarios, pero amplía la confianza del sistema hacia terceros.|
+| 5 | Como colaborador de una obra, quiero registrar mi contribución junto a la del creador principal, para que mi participación quede reconocida en el historial. | Rodrigo Ramirez | Debería: Reconoce la autoría colectiva en obras con más de un autor. El brief menciona a los colaboradores como actores, pero muchas obras tienen un solo autor, así que no bloquea el MVP. |
+| 6 | Como empresa, quiero consultar el historial de derechos de una obra antes de adquirirla, para evitar disputas legales sobre su explotación. | Rodrigo Ramirez | Podría: Es un caso derivado que solo tiene valor cuando ya existen múltiples registros y transferencias en el sistema. Depende de que las tres historias imprescindibles ya operen. |
 
 ---
 
