@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --ink: #0a0a0a;
+  --border: #111111;
+  --yellow: #ffe600;
+  --cyan: #1ecad3;
+  --success: #a8f0c2;
+  --neutral: #f4f4f1;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-ink: var(--ink);
+  --color-border: var(--border);
+  --color-yellow: var(--yellow);
+  --color-cyan: var(--cyan);
+  --color-success: var(--success);
+  --color-neutral: var(--neutral);
+  --font-display: var(--font-space-grotesk);
+  --font-ui: var(--font-ibm-plex-mono);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: var(--font-ibm-plex-mono), monospace;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button:not(:disabled),
+a {
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--cyan);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--cyan);
+  outline-offset: 3px;
+}
