@@ -31,7 +31,7 @@ export function AppHeader({
     <header className="border-b-2 border-border bg-white">
       <div className="mx-auto flex min-h-18 w-full max-w-7xl flex-wrap items-center gap-x-5 gap-y-3 px-4 py-3 sm:px-6 lg:px-8">
         <Link
-          className="font-display text-2xl font-bold tracking-[-0.08em] text-ink"
+          className="order-1 font-display text-2xl font-bold tracking-[-0.08em] text-ink"
           href={brandHref}
         >
           AUTHORY
@@ -62,13 +62,17 @@ export function AppHeader({
         </nav>
 
         {signInHref ? (
-          <BrutalistButton className="ml-auto" href={signInHref} size="sm">
+          <BrutalistButton
+            className="order-2 ml-auto sm:order-3 sm:ml-0"
+            href={signInHref}
+            size="sm"
+          >
             {signInLabel}
           </BrutalistButton>
         ) : (
           <BrutalistButton
             aria-label="Entrar no disponible: la autenticación está fuera del alcance de la Prueba Funcional."
-            className="ml-auto"
+            className="order-2 ml-auto sm:order-3 sm:ml-0"
             disabled
             size="sm"
             title="La autenticación está fuera del alcance de la Prueba Funcional."

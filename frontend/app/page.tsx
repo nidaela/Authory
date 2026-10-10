@@ -1,69 +1,140 @@
-import Image from "next/image";
+import { AppHeader } from "@/components/layout/app-header";
+import { PageShell } from "@/components/layout/page-shell";
+import { BrutalistButton } from "@/components/ui/brutalist-button";
+import { Panel } from "@/components/ui/panel";
+
+const capabilities = [
+  {
+    title: "REGISTRO DE AUTORÍA",
+    description: "Evidencia verificable de creación.",
+  },
+  {
+    title: "VERIFICACIÓN PÚBLICA",
+    description: "Comprobación de procedencia.",
+  },
+  {
+    title: "HISTORIAL DE DERECHOS",
+    description: "Licencias y transferencias.",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <div className="flex min-h-dvh flex-col bg-white text-ink">
+      <AppHeader activeHref="/" />
+
+      <PageShell className="flex flex-1 flex-col !py-4 sm:!py-5">
+        <section
+          aria-labelledby="home-title"
+          className="grid items-start gap-5 lg:flex-1 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch lg:gap-8"
+        >
+          <div className="border-l-2 border-border pl-5 sm:pl-7 lg:flex lg:flex-col lg:justify-center">
+            <h1
+              className="font-display text-4xl font-semibold leading-[0.93] tracking-[-0.075em] text-ink sm:text-5xl lg:text-[clamp(2.5rem,3.6vw,3.25rem)] lg:whitespace-nowrap"
+              id="home-title"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              <span className="block">PROTEGE Y VERIFICA</span>
+              <span className="block">LA AUTORÍA DE TUS</span>
+              <span className="block">OBRAS DIGITALES</span>
+            </h1>
+            <p className="mt-3 max-w-xl font-ui text-sm leading-5 text-ink/75 sm:leading-6">
+              Registra evidencia verificable de autoría, fecha y derechos sin publicar el archivo
+              original en la blockchain.
+            </p>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              <BrutalistButton href="/registrar-obra" size="md">
+                REGISTRAR OBRA →
+              </BrutalistButton>
+              <BrutalistButton href="/verificar" size="md" variant="secondary">
+                VERIFICAR OBRA →
+              </BrutalistButton>
+            </div>
+          </div>
+
+          <Panel aria-labelledby="architecture-title" className="lg:flex lg:h-full lg:flex-col" padding="none">
+            <div className="border-b-2 border-border px-3 py-2 sm:px-4 sm:py-3">
+              <h2
+                className="font-display text-base font-semibold tracking-[-0.04em] text-ink"
+                id="architecture-title"
+              >
+                ARQUITECTURA / EVIDENCIA
+              </h2>
+            </div>
+
+            <div className="flex flex-1 flex-col justify-center p-3 sm:p-4 lg:p-5">
+              <div className="border-2 border-border bg-white p-3">
+                <h3 className="font-display text-lg font-semibold tracking-[-0.045em] text-ink lg:text-xl">
+                  ARCHIVO ORIGINAL
+                </h3>
+                <p className="mt-0.5 font-ui text-[10px] font-bold tracking-[0.1em] text-ink/60">
+                  PRIVADO · OFF-CHAIN
+                </p>
+              </div>
+
+              <div aria-hidden="true" className="flex h-4 items-center justify-center font-ui text-lg">
+                ↓
+              </div>
+
+              <div className="border-2 border-border bg-yellow p-3">
+                <h3 className="font-display text-lg font-semibold tracking-[-0.045em] text-ink lg:text-xl">
+                  HASH CRIPTOGRÁFICO
+                </h3>
+              </div>
+
+              <div aria-hidden="true" className="flex h-4 items-center justify-center font-ui text-lg">
+                ↓
+              </div>
+
+              <div className="border-2 border-border bg-cyan p-3">
+                <h3 className="font-display text-lg font-semibold tracking-[-0.045em] text-ink lg:text-xl">
+                  RED STELLAR
+                </h3>
+                <p className="mt-0.5 font-ui text-[10px] font-bold tracking-[0.1em] text-ink/65">
+                  REFERENCIA VERIFICABLE
+                </p>
+              </div>
+
+            </div>
+          </Panel>
+        </section>
+
+        <section
+          aria-label="Capacidades principales de Authory"
+          className="mt-6 grid border-l-2 border-t-2 border-border sm:mt-8 lg:grid-cols-3"
+        >
+          {capabilities.map((capability) => (
+            <article
+              className="border-b-2 border-r-2 border-border p-3 sm:p-4 lg:flex lg:min-h-24 lg:flex-col lg:justify-center lg:p-3"
+              key={capability.title}
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+              <h2 className="font-display text-lg font-semibold tracking-[-0.045em] text-ink">
+                {capability.title}
+              </h2>
+              <p className="mt-2 max-w-xs font-ui text-[11px] leading-4 text-ink/70">
+                {capability.description}
+              </p>
+            </article>
+          ))}
+        </section>
+
+        <section
+          aria-labelledby="privacy-title"
+          className="mt-4 bg-ink px-4 py-4 sm:mt-5 sm:px-5"
+        >
+          <div className="grid items-center gap-3 lg:grid-cols-[1fr_auto] lg:gap-8">
+            <h2
+              className="font-display text-xl font-semibold tracking-[-0.045em] text-yellow"
+              id="privacy-title"
+            >
+              TU ARCHIVO ORIGINAL SIEMPRE PERMANECE PRIVADO.
+            </h2>
+            <p className="font-ui text-[11px] leading-5 text-white/65 lg:text-right">
+              Stellar = capa de confianza y trazabilidad.
+            </p>
+          </div>
+        </section>
+      </PageShell>
     </div>
   );
 }
