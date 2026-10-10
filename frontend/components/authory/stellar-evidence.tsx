@@ -16,10 +16,7 @@ export function StellarEvidence({ evidence, className = "" }: StellarEvidencePro
   return (
     <section className={`border-2 border-border bg-white ${className}`}>
       <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-border bg-neutral px-4 py-3">
-        <div>
-          <p className="font-ui text-[10px] font-bold tracking-[0.1em] text-ink/65">EVIDENCIA STELLAR</p>
-          <p className="mt-1 font-ui text-[11px] text-ink">STELLAR TESTNET · SIMULADA PARA LA PRUEBA FUNCIONAL</p>
-        </div>
+        <p className="font-ui text-[10px] font-bold tracking-[0.1em] text-ink/65">EVIDENCIA STELLAR</p>
         <StatusBadge variant={statusVariants[evidence.status]}>{evidence.status.toUpperCase()}</StatusBadge>
       </div>
       <dl className="grid sm:grid-cols-2">
