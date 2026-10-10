@@ -10,7 +10,7 @@ export interface StatusBadgeProps extends HTMLAttributes<HTMLSpanElement> {
 const variantClasses: Record<StatusBadgeVariant, string> = {
   neutral: "bg-neutral text-ink",
   active: "bg-cyan text-ink",
-  success: "bg-success text-ink",
+  success: "bg-yellow text-ink",
 };
 
 export function StatusBadge({
