@@ -17,6 +17,7 @@ export interface AppHeaderProps {
 
 const defaultNavigation: readonly AppHeaderLink[] = [
   { href: "/", label: "INICIO" },
+  { href: "/registrar-obra", label: "REGISTRAR OBRA" },
   { href: "/verificar", label: "VERIFICAR OBRA" },
 ];
 
